@@ -3,43 +3,46 @@ class Mobil {
     public $merek;
     public $warna;
     public $kecepatan;
- 
+
     public function __construct($merek, $warna, $kecepatan) {
-        $this->merek     = $merek;
-        $this->warna     = $warna;
+        $this->merek = $merek;
+        $this->warna = $warna;
         $this->kecepatan = $kecepatan;
     }
+
     public function getInfo() {
-        echo "Mobil: $this->merek, Warna: $this->warna, Kecepatan: $this->kecepatan km/jam<br>";
+        return "Merek: " . $this->merek . 
+               "<br>Warna: " . $this->warna . 
+               "<br>Kecepatan: " . $this->kecepatan . " km/jam";
     }
+
     public function jalankan() {
-        echo "$this->merek: Mobil berjalan...<br>";
+        return "Mobil berjalan...";
     }
+
     public function berhenti() {
-        echo "$this->merek: Mobil berhenti<br>";
+        return "Mobil berhenti";
     }
 }
- 
-$mobil1 = new Mobil("Toyota", "Merah", 180);
-$mobil2 = new Mobil("Honda", "Hitam", 160);
-$mobil3 = new Mobil("Suzuki", "Putih", 150);
- 
-$mobil1->getInfo();
-$mobil2->getInfo();
-$mobil3->getInfo();
- 
-echo "<br>";
- 
-$mobil1->jalankan();
-$mobil1->berhenti();
- 
-echo "<br>";
- 
-$mobil2->jalankan();
-$mobil2->berhenti();
- 
-echo "<br>";
- 
-$mobil3->jalankan();
-$mobil3->berhenti();
+
+$mobil1 = new Mobil("Toyota", "Hitam", 120);
+$mobil2 = new Mobil("Honda", "Merah", 100);
+$mobil3 = new Mobil("BMW", "Putih", 150);
+
+echo "Mobil 1<br>";
+echo $mobil1->getInfo();
+echo "<br>" . $mobil1->jalankan();
+echo "<br>" . $mobil1->berhenti();
+echo "<br><br>";
+
+echo "Mobil 2<br>";
+echo $mobil2->getInfo();
+echo "<br>" . $mobil2->jalankan();
+echo "<br>" . $mobil2->berhenti();
+echo "<br><br>";
+
+echo "Mobil 3<br>";
+echo $mobil3->getInfo();
+echo "<br>" . $mobil3->jalankan();
+echo "<br>" . $mobil3->berhenti();
 ?>
