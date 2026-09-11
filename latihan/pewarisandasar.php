@@ -1,6 +1,6 @@
 <?php
 
-trait BisaBayarPakaiQR{
+trait BisaBayarPakaiQR{ // trait bisa diwariskan ke class child, dimana trait ini bisa digunakan untuk membuat QR Code untuk belanja
     public function buatQRCodeBelanja(){
         return "QR Code untuk belanja berhasil di buat silahlan scane untuk bayar; Rp " . $this->harga;
     }
@@ -35,7 +35,7 @@ class Makanan extends Produk {
 
 class Elektronik extends Produk {
     use BisaBayarPakaiQR; //menggunakan trait
-    protected $garansi;
+    protected $garansi; // menggunakan protected agar bisa diakses oleh class child
     public function __construct($merek, $harga, $garansi) 
     {
         parent::__construct($merek, $harga); //memanggil constructor parent
