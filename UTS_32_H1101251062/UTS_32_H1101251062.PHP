@@ -6,7 +6,6 @@ abstract class Obat
     protected $id;
     protected $nama;
     protected $hargaDasar;
-    
     public function __construct($id, $nama, $hargaDasar)
     {
         $this->id = $id;
@@ -21,17 +20,15 @@ abstract class Obat
     //bonus keterangan unik tiap child
     abstract public function cetakDetail();
 }
-//Child class + override 
+//Child class + override
 class Tablet extends Obat
 {
-    private $butir;
-
+    private $butir; 
     public function __construct($id, $nama, $hargaDasar, $butir)
     {
         parent::__construct($id, $nama, $hargaDasar);
         $this->butir = $butir;
     }
-
     public function hitungTotal()
     {
         return $this->hargaDasar + (2000 * $this->butir);
@@ -77,7 +74,6 @@ class Vitamin extends Obat
         parent::__construct($id, $nama, $hargaDasar);
         $this->kapsul = $kapsul;
     }
-
     public function hitungTotal()
     {
         return $this->hargaDasar + (5000 * $this->kapsul);
@@ -90,7 +86,7 @@ class Vitamin extends Obat
 }
 //Instansiasi 5 objek
 $daftarObat = [
-    new Tablet ("O001", "Iren",         10000, 5),
+    new Tablet ("O001", "Iren", 10000, 5),
     new Sirup  ("O002", "Riton", 15000, 4), // botol > 3 -> diskon 5%
     new Vitamin("O003", "Aldan", 20000, 2),
     new Tablet ("O004", "Paracetamol",   5000, 10),
@@ -101,19 +97,15 @@ function rp($angka)
 {
     return "Rp " . number_format($angka, 0, ',', '.');
 }
-
 $format = "| %-3s | %-6s | %-14s | %-8s | %-13s | %-13s |\n";
 $garis  = str_repeat("-", 76) . "\n";
-
 echo $garis;
 printf($format, "No", "ID", "Nama", "Jenis", "Harga Dasar", "Total");
 echo $garis;
-
 $totalKeseluruhan = 0;
 foreach ($daftarObat as $i => $obat) {
     $total = $obat->hitungTotal();
     $totalKeseluruhan += $total;
-
     printf(
         $format,
         $i + 1,
