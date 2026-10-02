@@ -26,9 +26,6 @@ function prosesbayar (Pembayaran $penbayaran, $jumlah){ //poliomorfisme, fungsi 
     echo $penbayaran->bayar($jumlah); //memanggil method bayar dari objek pembayaran
 }   
 
-
-
-
 $goPay = new GoPay();
 $qris = new QRIS();
 $transferBank = new TransferBank();
